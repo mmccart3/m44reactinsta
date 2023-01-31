@@ -1,6 +1,7 @@
 import './App.css';
 import Box from "./components/box";
 import { useState, useEffect } from 'react';
+import Login from './components/Login';
 
 
 function App() {
@@ -22,18 +23,12 @@ function App() {
     }
     
 
-  // for (let index = 0; index < myArray.length; index++) {
-  //   const element = myArray[index];
-  //   console.log(element);
-  // }
-  // This can be rewritten as a map function and the map function can be placed in the JSX below
-
   return (
     <div className="App">
+      <Login setter={setUser}/>
+      <h1>{user} is logged in</h1>
 
-      <button onClick={(event) => setLoggedIn(!loggedIn)}>login or logout</button>
-
-      {loggedIn ?
+      {user ?
       photos.map((item,index) => {
         return (
           <div>

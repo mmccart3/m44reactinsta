@@ -1,4 +1,4 @@
-async function login (username,email,password) {
+async function login (username,email,password,setter) {
     try {
         const response = await fetch("http://localhost:5001/login", {
             method:"POST",
@@ -12,6 +12,8 @@ async function login (username,email,password) {
         })
         const data = await response.json();
         console.log(data);
+        console.log(data.user);
+        setter(data.user);
     } catch (error) {
         console.log(error)
     }
