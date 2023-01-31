@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { login } from "../utils";
+import { login } from "../utils/utilities";
 
 const Login = ({setter}) => {
     const [username,setUsername] =useState();
