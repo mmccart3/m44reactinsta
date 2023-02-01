@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Login from './components/Login';
 import { readCookie } from './common';
 import {authCheck} from './utils/utilities'
+import AddUser from './components/addUser';
 
 function App() {
   const [user, setUser] = useState("");
@@ -36,12 +37,20 @@ function App() {
     setPhotos(data);
     console.log(photos);
     }
+  const logout = () => {
+    document.cookie = "jwt_token =; path=/; expires = Thu, 01 Jan 1970 00:00:01 GMT;";
+    setUser("");
+  }
     
 
   return (
     <div className="App">
       <Login setter={setUser}/>
-      <h1>{user} is logged in</h1>
+      <br></br>
+      {{user} && <button onClick={logout}>Logout</button>}
+      {{user} ? <h1>{user} logged in</h1> : <h1>logged out</h1>}
+      <br></br>
+      <AddUser setter={setUser}/>
 
       {user ?
       photos.map((item,index) => {
