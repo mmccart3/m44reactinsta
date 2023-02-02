@@ -2,6 +2,7 @@ import { storeCookie } from "../common";
 
 export const login = async (username,email,password,setter,cookie) => {
     try {
+        console.log(process.env.REACT_APP_REST_API_URL);
         const response = await fetch(`${process.env.REACT_APP_REST_API_URL}login`, {
             method:"POST",
             headers: {"Content-Type" : "application/json"},
